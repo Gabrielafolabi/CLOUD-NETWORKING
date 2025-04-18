@@ -37,7 +37,7 @@ Created a two VPCs. one for the workload or application called the main vpc. The
 
 
 
-**Security VPC**
+<u>**Security VPC**</u>
 1. In the security vpc, two subnets are created. Private and Public.
    The private subnet is where the fortigate appliances and the GWLB are provisioned. While the public subnet is where we provisioned a Jump server so as to be able to
    manage the Fortigate appliances remotely from the internet.
@@ -63,18 +63,6 @@ The security group on the Fortigate instance permit the ports below:
 ![image](https://github.com/user-attachments/assets/754fcbe8-1e68-4179-8612-fe1da742afd3)
 
 GENEVE Preserves original source/destination IPs while routing to appliances. and it works with the GWLB on port 6081.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -114,6 +102,11 @@ default traffic pointing towards the internet gateway.
 ![image](https://github.com/user-attachments/assets/53f3be1e-1320-4575-9b29-b0d581d3c6f4)
 default traffic from the instances in the private subnet is routed towards the GWLBe.
 
+
+Summary of the flow for North-South traffic.
+1. Instances in the main vpc public subnet when it tries to reach the internet (e.g 8.8.8.8), the traffic flows in two phase:
+   Forward traffic: to the GWLBe >>> GWLB >>> Fortigate instance(for inspection)
+   Backward traffic: Fortigate instance(After inspection) >>> GWLB >>> back to the GWLBe >>> IGW >>> Internet.
 
 
 
