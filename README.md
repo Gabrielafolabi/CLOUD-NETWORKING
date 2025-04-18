@@ -105,8 +105,17 @@ default traffic from the instances in the private subnet is routed towards the G
 
 Summary of the flow for North-South traffic.
 1. Instances in the main vpc public subnet when it tries to reach the internet (e.g 8.8.8.8), the traffic flows in two phase:
-   Forward traffic: to the GWLBe >>> GWLB >>> Fortigate instance(for inspection)
+   Forward traffic: to the GWLBe >>> GWLB >>> Fortigate instance(for inspection).
+   
    Backward traffic: Fortigate instance(After inspection) >>> GWLB >>> back to the GWLBe >>> IGW >>> Internet.
 
+
+
+
+**CHALLENGES/BLOCKER**
+
+In the course of the project, we realized that the instance in the private subnet, couldn't reach the internet. The traffic is hitting the Fortigate appliance, but couldnt go to the internet. 
+
+see ping to 8.8.8.8 below, and the observation on  the Fortigate appliance.
 
 
