@@ -6,7 +6,7 @@ Implementing a Gateway Load Balancer (GWLB) with FortiGate involves integrating 
 
 East west traffic means vpc to vpc traffic ,
 North-south traffic means vpc to internet traffic.
-
+However, this project is focused on North-South traffic
 
 
 The objective of this project is to implement GWLB with fortigate, below are the key aws services and resources to achieve the objective.
@@ -115,7 +115,7 @@ default traffic from the instances in the private subnet is routed towards the G
 
 ## **CHALLENGES/BLOCKER**
 
-In the course of the project, we realized that the instance in the private subnet, couldn't reach the internet. The traffic is hitting the Fortigate appliance, but couldnt go to the internet. 
+In the course of the project, we realized that the instance in the private subnet, couldn't reach the internet. The traffic is hitting the Fortigate appliance for inspection , but couldnt go to the internet. 
 
 
 see ping to 8.8.8.8 below, 
