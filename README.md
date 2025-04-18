@@ -100,6 +100,8 @@ Also an internet gateway is created and attahced to the vpc for internet communi
 ![image](https://github.com/user-attachments/assets/9c006cb9-e186-44e8-a096-3cfaac5f0285)
 
 
+
+
    
 Now, all services and resources have been created. But to ensure proper flow of traffic in the right path, the route table was created for each subnet as seen below:
 
@@ -109,10 +111,15 @@ default traffic pointing towards the internet gateway.
 
 
 
+
 **Main-vpc-Private Subnet route table:**
 
 ![image](https://github.com/user-attachments/assets/53f3be1e-1320-4575-9b29-b0d581d3c6f4)
 default traffic from the instances in the private subnet is routed towards the GWLBe.
+
+
+
+
 
 
 *Summary of the flow for North-South traffic.*
@@ -121,6 +128,7 @@ default traffic from the instances in the private subnet is routed towards the G
    Forward traffic: to the GWLBe >>> GWLB >>> Fortigate instance(for inspection).
    
    Backward traffic: Fortigate instance(After inspection) >>> GWLB >>> back to the GWLBe >>> IGW >>> Internet.
+
 
 
 
