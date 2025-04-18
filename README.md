@@ -45,24 +45,36 @@ Created a two VPCs. one for the workload or application called the main vpc. The
    ![image](https://github.com/user-attachments/assets/53e9c10e-cd64-4fb6-a50a-2f3a67da6da8)
 
 
-2. In the security vpc, we deployed the GWLB as seen below:
 
-![image](https://github.com/user-attachments/assets/6cd3fc88-0931-4ac4-8c60-8af9a0fab802)
-
-3. Also the fortigate instances are provisioned by navigating to the aws market.
+2. Also the fortigate instances are provisioned by navigating to the aws market.
 
 ![image](https://github.com/user-attachments/assets/ddbbe05c-abd7-4416-a5ec-d0b35cde4b35)
+
 
 See below the fortigate instances for inspection. The essence of the jump server, is to be able to manage the fortigate instances remotely throught the internet.
 This is because the fortigate is deployed in the private subnet.
 
+
 ![image](https://github.com/user-attachments/assets/4967c299-4ecb-435b-bdb8-781a265b1cca)
+
 
 The security group on the Fortigate instance permit the ports below:
 
 ![image](https://github.com/user-attachments/assets/754fcbe8-1e68-4179-8612-fe1da742afd3)
 
 GENEVE Preserves original source/destination IPs while routing to appliances. and it works with the GWLB on port 6081.
+
+
+
+3. In the security vpc, we deployed the GWLB as seen below:
+
+![image](https://github.com/user-attachments/assets/6cd3fc88-0931-4ac4-8c60-8af9a0fab802)
+
+Also a Target group is created, specifying the IP of the Fortigate appliance.
+
+![image](https://github.com/user-attachments/assets/01b6b5fd-a92d-4eeb-8136-81ea73dc446d)
+
+
 
 
 
